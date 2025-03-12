@@ -1,11 +1,12 @@
 
 import { stayFlexyProgram as program } from '../utils/index.js'
 import StretchCard from './StretchCard.jsx'
+import { useState } from 'react'
 
 export default function Grid (){
 
     const isLocked = true;
-    const selectedDay = 0;
+    const [selectedDay, setSelectedDay] = useState(0);
 
 
     return (
@@ -15,20 +16,24 @@ export default function Grid (){
 
 
                 const flexPlan = program[index]
+                const daynum = ((index / 8) <=1) ? '0' + (index + 1) : index + 1;
+                const icon = <i class="fa-solid fa-unlock"></i>
+
                 if (index === selectedDay){
                     return(
-                        <StretchCard key={index} />
+                        <StretchCard key={index} flexPlan={flexPlan} type={type} index={index} daynum={daynum} icon={icon}
+                        />
                     )
                 }
 
                 return (
                     <>
-                    <button key={index} className="day">
-                        <p>Day {((index / 8) <=1) ? '0' + (index + 1) : index + 1}</p>
+                    <button key={index} className={'day ' + (isLocked ? 'inactive' : '')} >
+                        <p>Day {daynum}</p>
                         {isLocked ? (
                             <i className='fa-solid fa-lock'></i>
                         ) : (
-                                <i class="fa-solid fa-unlock"></i>
+                                {icon}
                             )
                         }
                         <div>

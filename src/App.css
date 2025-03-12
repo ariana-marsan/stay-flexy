@@ -39,6 +39,7 @@ html{
 
 .strong{
   text-decoration: wavy underline;
+  text-underline-position: under;
 }
 
 .stretching{
@@ -81,8 +82,120 @@ ul{
 .grid-flex-plan{
   padding: 1rem;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+.stretch-container{
+  grid-area: span 3 / span 3;
+}
+
+.stretch-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stretch-card-header{
+  display: flex;
+  flex-direction: row;
+  gap: .8rem;
+  align-items: center;
+}
+
+.stretch-card-header h2{
+  color: #444;
+  background-color: #ece9ca;
+  padding: .5rem;
+  border-radius: 10px;
+
+  border-left: 1px solid #f5eb90;
+  border-top: 1px solid #f5eb90;
+}
+
+.stretch-card-header p{
+  color: #ece9ca;
+  font-size: 1.3rem;
+  text-shadow: #f5eb90 1px 1px 1px;
+}
+
+.warmup-name{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-size: 1.15rem;
+}
+
+.warmup-title{
+  grid-area: span 1 / span 5;
+  font-size: 1.4rem;
+  color: #ece9ca;
+  padding: .5rem;
+  margin-right: 7rem;
+  border-left: 1px solid #f5eb90;
+  border-top: 1px solid #f5eb90;
+}
+
+.warmup-grid{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.warmup-name p{
+  margin: 0 auto;
+}
+
+.warmup-button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 0;
+  gap: .5rem;
+  grid-area: span 1 / span 5;
+  font-size: 1.2rem;
+  color: #f5eb90;
+}
+
+.help-button{
+  color: #ece9ca;
+  background-color: transparent;
+  border: none;
+  padding: .5rem;
+  border-radius: 50%;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  transition: all .3s;
+  scale: 1.1;
+}
+
+.help-button:hover{
+  color: #f5eb90;
+  scale: 1.3;
+  cursor: pointer;
+}
+
+.button-complete{
+  border: 1px solid #f5eb90;
+  padding: .5rem;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.button-complete:hover{
+  background-color: #f5eb90;
+  color: #222;
+}
+
+.warmup-info{
+  margin: 0 auto;
 }
 
 .day{
@@ -103,6 +216,19 @@ ul{
   color: #222;
 }
 
+.inactive{
+  background-color: #333;
+  color: #8889;
+  border: 1px solid #7779;
+}
+
+.inactive:hover{
+  background-color: #333;
+  color: #8889;
+  border: 1px solid #7779;
+  cursor: not-allowed;
+}
+
 .footer{
   display: flex;
   flex-direction: row;
@@ -118,4 +244,57 @@ ul{
 
 .hasAnA a:hover{
   color: #f5eb90;
+}
+
+.underlay{
+  background-color: #0006;
+  position: fixed;
+  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.modal-container{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal{
+  background-color: #444;
+  padding: 6rem 4rem;
+  border-radius: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal-name{
+  font-size: 1.3rem;
+  color: #ece9ca;
+}
+
+.modal-name h2{
+  color: #f5eb90;
+  font-size: 2rem;
+}
+
+.modal-description{
+  font-size: 1.2rem;
+}
+
+.modal-description p{
+  font-size: 1.3rem;
+  color: #ece9ca;
 }
