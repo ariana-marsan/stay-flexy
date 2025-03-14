@@ -6,7 +6,7 @@ import { exerciseDescriptions as descriptions } from "../utils/index.js";
 
 export default function StretchCard(props) {
 
-  const {flexPlan, index, type, daynum, icon} = props;
+  const {flexPlan, index, type, daynum, handleComplete} = props;
 
   const {warmup, stretching} = flexPlan || {};
 
@@ -25,7 +25,7 @@ export default function StretchCard(props) {
       <div className="stretch-card">
         <div className="stretch-card-header">
           <p>Day {daynum}</p>
-          {icon}
+          <i class="fa-solid fa-unlock"></i>
         </div>
         <div className="stretch-card-header">
           <h2><b>{type} Stretch</b></h2>
@@ -87,7 +87,9 @@ export default function StretchCard(props) {
       </div>
 
       <div>
-        <button  className="button-complete">Complete</button>
+        <button  className="button-complete" onClick={()=>{
+          handleComplete(index, flexPlan);
+        }}>Complete</button>
       </div>
     </div>
 

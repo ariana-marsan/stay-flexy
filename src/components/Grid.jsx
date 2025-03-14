@@ -5,8 +5,23 @@ import { useState } from 'react'
 
 export default function Grid (){
 
-    const isLocked = true;
+    const isLocked = false;
     const [selectedDay, setSelectedDay] = useState(0);
+    const completedDays = [];
+    const [completed, setCompleted] = useState(null);
+
+    const handleComplete = (index, data) => {
+        const newObj={
+        ...completed,
+        [index]: {
+            ...data,
+            isCompleted: true
+        }}
+        setCompleted(newObj); 
+        localStorage.setItem('completed', JSON.stringify(newObj));
+        setSelectedDay(selectedDay + 1);
+        localStorage.setItem('selectedDay', selectedDay + 1);
+    }
 
 
     return (
@@ -17,23 +32,24 @@ export default function Grid (){
 
                 const flexPlan = program[index]
                 const daynum = ((index / 8) <=1) ? '0' + (index + 1) : index + 1;
-                const icon = <i class="fa-solid fa-unlock"></i>
 
-                if (index === selectedDay){
+                if ((localStorage.getItem('selectedDay') === null ? index === selectedDay : index === parseInt(localStorage.getItem('selectedDay')))) {
                     return(
-                        <StretchCard key={index} flexPlan={flexPlan} type={type} index={index} daynum={daynum} icon={icon}
+                        <StretchCard key={index} flexPlan={flexPlan} type={type} index={index} daynum={daynum} handleComplete={handleComplete}
                         />
                     )
-                }
+                } console.log(localStorage.getItem('selectedDay'))
 
                 return (
                     <>
-                    <button key={index} className={'day ' + (isLocked ? 'inactive' : '')} >
+                    <button key={index} className={'day ' + (isLocked ? 'inactive' : '')} onClick={()=>{
+                        setSelectedDay(index); {console.log({selectedDay})}
+                    }} >
                         <p>Day {daynum}</p>
                         {isLocked ? (
                             <i className='fa-solid fa-lock'></i>
                         ) : (
-                                {icon}
+                            <i class="fa-solid fa-unlock"></i>
                             )
                         }
                         <div>
