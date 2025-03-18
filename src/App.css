@@ -10,7 +10,6 @@ html{
 }
 
 .header {
-  background-color: #333;
   color: #fff;
   padding: 1rem;
   text-align: center;
@@ -187,11 +186,14 @@ ul{
   border-radius: 10px;
   width: 100%;
   font-size: 1rem;
+  background-color: #2229;
+  color: #ece9ca;
 }
 
 .button-complete:hover{
   background-color: #f5eb90;
   color: #222;
+  font-weight: bold;
 }
 
 .warmup-info{
@@ -278,6 +280,7 @@ ul{
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  margin: 0 10rem;
 }
 
 .modal-name{
@@ -297,4 +300,58 @@ ul{
 .modal-description p{
   font-size: 1.3rem;
   color: #ece9ca;
+}
+
+@media (max-width: 700px) {
+  .modal{
+    margin: 0rem 4rem;
+    padding: 3rem 2rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .grid-flex-plan{
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stretch-container{
+    grid-area: span 4 / span 4;
+  }
+  .modal{
+    padding: 4rem 3rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid-flex-plan{
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .stretch-container{
+    grid-area: span 5 / span 5;
+  }
+  .modal{
+    margin: 0 15rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .grid-flex-plan{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  html{
+    max-width: 1100px;
+    margin: auto;
+  }
+  .app{
+    align-content: center;
+    justify-self: center;
+  }
+  .stretch-container{
+    grid-area: span 6 / span 6;
+  }
+  .header{
+    padding: 3.5rem 0 1rem 0;
+  }
+  .modal{
+    margin: 0 20rem;
+  }
 }

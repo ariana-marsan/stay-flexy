@@ -5,14 +5,14 @@ import Hero from './components/Hero';
 
 function App() {
   return (
-    <>
+    <div className="app">
     <Layout>
       <main>
         <Hero />
         <Grid />
       </main>
     </Layout>
-    </>
+    </div>
   );
 }
 

@@ -62,7 +62,7 @@ export default function StretchCard(props) {
         <div className="warmup-name">
            <h2 className="warmup-title">Stretch</h2>
            <p>Sets</p>
-           <p>Reps</p>
+           <p>Seconds</p>
         </div>
 
       <div className="warmup-grid">
